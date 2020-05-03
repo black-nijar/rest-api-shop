@@ -1,10 +1,10 @@
 {
   "name": "rest-shop",
   "version": "1.0.0",
-  "description": "A Node.js REST\tful API",
-  "main": "index.js",
+  "description": "node js rest api shop",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "keywords": [
     "node",
@@ -15,5 +15,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
   }
 }
