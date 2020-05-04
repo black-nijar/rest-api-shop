@@ -21,11 +21,13 @@ app.use((req, res, next) => {
 
 
 app.use(morgan("dev"));
+app.use('/uploads', express.static('uploads'))
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use("/products", require("./api/routes/products"));
 app.use("/orders", require("./api/routes/orders"));
+app.use('/user', require('./api/routes/user'));
 
 app.use((req, res, next) => {
   const error = new Error("Not found");
