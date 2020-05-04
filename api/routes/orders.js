@@ -3,9 +3,9 @@ const router = express.Router();
 const Order = require("../models/orders");
 const mongoose = require("mongoose");
 const Product = require("../models/product");
-const auth = require('../middleware/auth');
+const auth = require("../middleware/auth");
 
-router.get("/", auth ,(req, res, next) => {
+router.get("/", auth, (req, res, next) => {
   Order.find()
     .exec()
     .then((docs) => {
@@ -29,7 +29,7 @@ router.get("/", auth ,(req, res, next) => {
     });
 });
 
-router.post("/", auth,(req, res, next) => {
+router.post("/", auth, (req, res, next) => {
   Product.findById(req.body.productId)
     .then((product) => {
       if (!product) {
@@ -67,14 +67,14 @@ router.post("/", auth,(req, res, next) => {
     });
 });
 
-router.get("/:orderId", auth,(req, res, next) => {
+router.get("/:orderId", auth, (req, res, next) => {
   Order.findById(req.params.orderId)
     .exec()
     .then((order) => {
       if (!order) {
         return res.status(404).json({
-          msg: 'Order not found'
-        })
+          msg: "Order not found",
+        });
       }
       res.status(200).json({
         order: order,
@@ -89,7 +89,7 @@ router.get("/:orderId", auth,(req, res, next) => {
     });
 });
 
-router.delete("/:orderId", auth,(req, res, next) => {
+router.delete("/:orderId", auth, (req, res, next) => {
   Order.remove({ _id: req.params.orderId })
     .exec()
     .then((result) => {
@@ -105,8 +105,8 @@ router.delete("/:orderId", auth,(req, res, next) => {
         },
       });
     })
-    .catch(err => {
-      res.status(500).json({ error: err })
+    .catch((err) => {
+      res.status(500).json({ error: err });
     });
 });
 
