@@ -1,7 +1,7 @@
 # RESTful API SHOPPING - (Node.js,Express.js and MongoDB)
 ## run backend
 npm install & npm start
-## visit - [http://localhost:5000]
+## visit - <http://localhost:5000/products>
 * **URL**
 
   ## user
